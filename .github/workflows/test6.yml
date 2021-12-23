@@ -6,11 +6,7 @@ on:
     types:
       - completed
     branches:
-      - main
-      - develop
-      - experimental/*
-      - release/*
-      - feature/add_github_actions
+      - master
 
 jobs:
   on-success6:
