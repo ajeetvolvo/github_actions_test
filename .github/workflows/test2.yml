@@ -8,24 +8,12 @@ on:
     branches:
       - master
 
-
 jobs:
-  on-success2:
+  on-success3:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Download artifact
         run: echo "hello world"
-      - name: Download artifact1
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
-          workflow: test.yml
-          workflow_conclusion: success
-          pr: ${{github.event.pull_request.number}}
-          commit: ${{github.event.pull_request.head.sha}}s
-          name: build-results
-      #    search_artifacts: false
-      - name: read the file
-        if:   github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/staging' || github.ref == 'refs/heads/feature/add_github_actions'
-        run: cat file.txt
+
+
