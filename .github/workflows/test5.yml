@@ -5,6 +5,7 @@ on:
     workflows: ["Test4"]
     types:
       - completed
+      - requested
     branches:
       - master
 
