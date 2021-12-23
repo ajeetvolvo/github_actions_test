@@ -1,0 +1,23 @@
+name: Test6
+
+on:
+  workflow_run:
+    workflows: ["Test5"]
+    types:
+      - completed
+    branches:
+      - main
+      - develop
+      - experimental/*
+      - release/*
+      - feature/add_github_actions
+
+jobs:
+  on-success6:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Download artifact
+        run: echo "hello world"
+
+

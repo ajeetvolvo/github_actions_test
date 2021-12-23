@@ -1,0 +1,28 @@
+name: Test1
+
+on: [push]
+
+jobs:
+
+
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: hello world
+        run: echo "hello world" >file.txt
+      - name: Get secret from base64
+        env:
+          GITLAB_CI_TOKEN: ${{ secrets.GITLAB_CI_TOKEN }}
+        run: |
+          echo $GITLAB_CI_TOKEN import certificate from secrets and regenerate the file
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-results
+          path: |
+            file.txt
+          retention-days: 1
+

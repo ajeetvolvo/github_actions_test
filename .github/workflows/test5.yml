@@ -1,0 +1,23 @@
+name: Test5
+
+on:
+  workflow_run:
+    workflows: ["Test4"]
+    types:
+      - completed
+    branches:
+      - main
+      - develop
+      - experimental/*
+      - release/*
+      - feature/add_github_actions
+
+jobs:
+  on-success5:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Say Hello World
+        run: echo "hello world"
+
+
