@@ -42,10 +42,16 @@ jobs:
           echo "Parameter 2: $PARAM2"
           echo "New Branch Name: $NEW_BRANCH_NAME"
           echo "New Version: $VERSION"
+      - name: commit and push
+        run: |
+          echo "Parameter 1: $PARAM1"
+          echo "Parameter 2: $PARAM2"
+          echo "New Branch Name: $NEW_BRANCH_NAME"
+          echo "New Version: $VERSION"     
 
           # Update the version value in version.txt directly from the workspace
           sed -i "s/version=.*/version=$VERSION/" $GITHUB_WORKSPACE/version.txt
-
+      
           # Commit the changes
           git add $GITHUB_WORKSPACE/version.txt
           git commit -m "Update version to $VERSION"
