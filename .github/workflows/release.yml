@@ -36,8 +36,6 @@ jobs:
           # Create a new branch and switch to it
           git checkout -b "$NEW_BRANCH_NAME"
           
-       
-
       - name: Update Version in version.txt
         run: |
           echo "Parameter 1: $PARAM1"
@@ -45,11 +43,11 @@ jobs:
           echo "New Branch Name: $NEW_BRANCH_NAME"
           echo "New Version: $VERSION"
 
-          # Update the version value in version.txt
-          sed -i "s/version=.*/version=$VERSION/" ~/$GITHUB_WORKSPACE/version.txt
+          # Update the version value in version.txt directly from the workspace
+          sed -i "s/version=.*/version=$VERSION/" $GITHUB_WORKSPACE/version.txt
 
           # Commit the changes
-          git add ~/$GITHUB_WORKSPACE/version.txt
+          git add $GITHUB_WORKSPACE/version.txt
           git commit -m "Update version to $VERSION"
 
           # Push the new branch to the remote repository
