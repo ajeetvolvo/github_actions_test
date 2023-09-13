@@ -58,8 +58,8 @@ jobs:
           git add $GITHUB_WORKSPACE/version.txt
 
           # Configure Git user name and email for the commit
-          git config user.email "asingh13@volvocars.com"
-          git config user.name "ajeet"
+          git config user.email "voc@volvocars.com"
+          git config user.name "voc"
           # Commit the changes
           git commit -m "Update version to $VERSION"
 
