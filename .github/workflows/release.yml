@@ -3,13 +3,23 @@ name: Manual Trigger Workflow
 # configure manual trigger
 on:
   workflow_dispatch:
+    inputs:
+      param1:
+        description: 'Parameter 1 description'
+        required: true
+      param2:
+        description: 'Parameter 2 description'
+        required: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build project
+
+      - name: Build with Parameters
         run: |
-          echo "Hello World"
+          echo "Parameter 1: ${{ github.event.inputs.param1 }}"
+          echo "Parameter 2: ${{ github.event.inputs.param2 }}"
