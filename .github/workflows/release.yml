@@ -50,5 +50,5 @@ jobs:
           git add $GITHUB_WORKSPACE/version.txt
           git commit -m "Update version to $VERSION"
 
-          # Push the new branch to the remote repository
+          # Push the new branch to the remote repository using the built-in GITHUB_TOKEN
           git push origin "$NEW_BRANCH_NAME"
