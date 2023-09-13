@@ -23,5 +23,5 @@ jobs:
         run: |
           echo "Parameter 1: ${{ github.event.inputs.param1 }}"
           echo "Parameter 2: ${{ github.event.inputs.param2 }}"
-          chmod +x test.sh
-          sh test.sh
+          chmod +x $GITHUB_WORKSPACE/test.sh
+          sh  $GITHUB_WORKSPACE/test.sh
