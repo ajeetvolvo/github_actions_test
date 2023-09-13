@@ -1,1 +1,1 @@
-echo "Parameter 1: ${{ github.event.inputs.param1 }}"
+echo "Parameter 1: $PARAM1"

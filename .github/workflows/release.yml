@@ -15,13 +15,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      PARAM1: ${{ github.event.inputs.param1 }}
+      PARAM2: ${{ github.event.inputs.param2 }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Build with Parameters
         run: |
-          echo "Parameter 1: ${{ github.event.inputs.param1 }}"
-          echo "Parameter 2: ${{ github.event.inputs.param2 }}"
-          chmod 777 $GITHUB_WORKSPACE/test.sh
-          sh  $GITHUB_WORKSPACE/test.sh
+          echo "Parameter 1: $PARAM1"
+          echo "Parameter 2: $PARAM2"
+          chmod +x $GITHUB_WORKSPACE/test.sh
+          $GITHUB_WORKSPACE/test.sh
