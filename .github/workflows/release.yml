@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       new_branch_name:
-        description: 'Specify the new branch name, e.g., 'feature/version_bump_X.Y.Z' or 'release/X.Y.Z''
+        description: 'Specify the new branch name, e.g., feature/version_bump_X.Y.Z or release/X.Y.Z'
         required: true
       bump_version:
         type: choice
