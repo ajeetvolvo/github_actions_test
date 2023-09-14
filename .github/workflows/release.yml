@@ -6,15 +6,15 @@ on:
       new_branch_name:
         description: 'New branch name'
         required: true
-      version:
-        description: 'New version number'
-        required: true
       bump_version:
         type: choice
         description: 'Bump the version'
         options:
           - true
           - false
+      version:
+        description: 'New version number'
+        required: false    
 
 jobs:
   build:
