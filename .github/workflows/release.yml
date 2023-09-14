@@ -17,11 +17,10 @@ on:
         required: true
       update_file:
         type: choice
-        description: Make a choice
+        description: update the version?
         options:
-        - foo
-        - bar
-        - baz
+        - yes
+        - no
 
      
 
