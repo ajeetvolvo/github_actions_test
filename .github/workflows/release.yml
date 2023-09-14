@@ -4,21 +4,21 @@ on:
   workflow_dispatch:
     inputs:
       new_branch_name:
-        description: 'Specify the new branch name, e.g., feature/version_bump_X.Y.Z or release/X.Y.Z'
+        description: "Specify the new branch name, e.g., feature/version_bump_X.Y.Z or release/X.Y.Z"
         required: true
       bump_version:
         type: choice
-        description: 'Choose 'True' to bump the version or 'False' to skip.'
+        description: "Choose 'True' to bump the version or 'False' to skip."
         required: true
         options:
           - True
           - False
       version:
-        description: 'Enter the new version (e.g., 5.31.1 or 5.32.0) or leave it blank to skip version bump.'
+        description: "Enter the new version (e.g., 5.31.1 or 5.32.0) or leave it blank to skip version bump."
         required: false    
 
 jobs:
-  build:
+  create-release:
     runs-on: ubuntu-latest
 
     env:
@@ -37,7 +37,7 @@ jobs:
 
       - name: Bump Version
         run: |
-          if [ "$BUMP_VERSION" = "true" ]; then
+          if [ "$BUMP_VERSION" = "True" ]; then
             # Update the version value in version.txt directly from the workspace
             sed -i "s/versionName = \"[^\"]*\"/versionName = \"${NEW_VERSION_NAME}\"/" $GITHUB_WORKSPACE/apps/volvo-cars-app/app/build.gradle.kts
             # Configure Git user name and email for the commit
