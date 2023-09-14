@@ -17,12 +17,13 @@ on:
         required: true
       update_file:
         description: 'Update file'
-        required: true
-        options:       # Define options as radio buttons
-          - name: Yes
-            value: yes
-          - name: No
-            value: no
+        choice:
+        type: choice
+        description: Make a choice
+        options:
+        - yes
+        - no
+     
 
 jobs:
   build:
