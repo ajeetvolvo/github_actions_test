@@ -15,6 +15,9 @@ on:
       version:
         description: 'New version number'
         required: true
+      update_file:
+        description: 'Update file (yes or no)'
+        required: true
 
 jobs:
   build:
@@ -25,6 +28,7 @@ jobs:
       PARAM2: ${{ github.event.inputs.param2 }}
       NEW_BRANCH_NAME: ${{ github.event.inputs.new_branch_name }}
       VERSION: ${{ github.event.inputs.version }}
+      UPDATE_FILE: ${{ github.event.inputs.update_file }}
 
     steps:
       - name: Checkout code
@@ -47,10 +51,14 @@ jobs:
           # Create a new branch and switch to it
           git checkout -b "$NEW_BRANCH_NAME"
 
-      - name: Update File
-        run: |    
-          # Update the version value in version.txt directly from the workspace
-          sed -i "s/version=.*/version=$VERSION/" $GITHUB_WORKSPACE/version.txt
+      - name: Conditional Update File
+        run: |
+          if [ "$UPDATE_FILE" = "yes" ]; then
+            # Update the version value in version.txt directly from the workspace
+            sed -i "s/version=.*/version=$VERSION/" $GITHUB_WORKSPACE/version.txt
+          else
+            echo "File update is skipped."
+          fi
 
       - name: Add and Commit File
         run: |
@@ -65,5 +73,4 @@ jobs:
 
           # Push the changes using the GITHUB_TOKEN
           git push origin "$NEW_BRANCH_NAME"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
