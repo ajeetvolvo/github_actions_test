@@ -16,9 +16,6 @@ on:
         description: 'New version number'
         required: true
       update_file:
-        description: 'Update file'
-        choice:
-        type: choice
         description: Make a choice
         options:
         - yes
