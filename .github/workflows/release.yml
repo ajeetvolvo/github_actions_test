@@ -8,11 +8,11 @@ on:
         required: true
       bump_version:
         type: choice
-        description: "Choose 'True' to bump the version or 'False' to skip."
+        description: "Choose 'true' to bump the version or 'false' to skip."
         required: true
         options:
-          - True
-          - False
+          - true
+          - false
       version:
         description: "Enter the new version (e.g., 5.31.1 or 5.32.0) or leave it blank to skip version bump."
         required: false    
