@@ -38,17 +38,17 @@ jobs:
       - name: Bump Version
         run: |
           if [ "$BUMP_VERSION" = "true" ]; then
-            #Update the version value in version.txt directly from the workspace
-            sed -i '' 's/versionName = "[^"]*"/versionName = "'"${NEW_VERSION_NAME}"'"/'  $GITHUB_WORKSPACE/apps/volvo-cars-app/app/build.gradle.kts
-            #Configure Git user name and email for the commit
+            # Update the version value in version.txt directly from the workspace
+            sed -i "s/versionName = \"[^\"]*\"/versionName = \"${NEW_VERSION_NAME}\"/" $GITHUB_WORKSPACE/apps/volvo-cars-app/app/build.gradle.kts
+            # Configure Git user name and email for the commit
             git config user.email "voc@volvocars.com"
             git config user.name "voc"
-            #Add the updated file
-            git add  $GITHUB_WORKSPACE/apps/volvo-cars-app/app/build.gradle.kts
-            #Commit the changes
-            git commit -m "Update version to $VERSION"
+            # Add the updated file
+            git add $GITHUB_WORKSPACE/apps/volvo-cars-app/app/build.gradle.kts
+            # Commit the changes
+            git commit -m "Update version to $NEW_VERSION_NAME"
           else
-            echo "bump version is skipped."
+            echo "Bump version is skipped."
           fi
 
       - name: Push the new branch
