@@ -37,7 +37,7 @@ jobs:
 
       - name: Bump Version
         run: |
-          if [ "$BUMP_VERSION" = "True" ]; then
+          if [ "$BUMP_VERSION" = "true" ]; then
             # Update the version value in version.txt directly from the workspace
             sed -i "s/versionName = \"[^\"]*\"/versionName = \"${NEW_VERSION_NAME}\"/" $GITHUB_WORKSPACE/apps/volvo-cars-app/app/build.gradle.kts
             # Configure Git user name and email for the commit
