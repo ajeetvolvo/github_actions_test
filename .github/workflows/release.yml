@@ -16,8 +16,13 @@ on:
         description: 'New version number'
         required: true
       update_file:
-        description: 'Update file (yes or no)'
+        description: 'Update file'
         required: true
+        options:       # Define options as radio buttons
+          - name: Yes
+            value: yes
+          - name: No
+            value: no
 
 jobs:
   build:
@@ -73,4 +78,5 @@ jobs:
 
           # Push the changes using the GITHUB_TOKEN
           git push origin "$NEW_BRANCH_NAME"
-        
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
