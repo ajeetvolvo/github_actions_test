@@ -58,7 +58,7 @@ jobs:
 
       - name: Conditional Update File
         run: |
-          if [ "$UPDATE_FILE" = "yes" ]; then
+          if [ "$UPDATE_FILE" = "true" ]; then
             # Update the version value in version.txt directly from the workspace
             sed -i "s/version=.*/version=$VERSION/" $GITHUB_WORKSPACE/version.txt
           else
@@ -78,5 +78,3 @@ jobs:
 
           # Push the changes using the GITHUB_TOKEN
           git push origin "$NEW_BRANCH_NAME"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
