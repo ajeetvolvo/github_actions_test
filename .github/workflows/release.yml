@@ -19,8 +19,8 @@ on:
         type: choice
         description: update the version?
         options:
-        - yes
-        - no
+        - ajeet
+        - raini
 
      
 
