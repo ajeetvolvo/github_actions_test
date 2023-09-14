@@ -10,8 +10,9 @@ on:
         type: choice
         description: 'Bump the version'
         options:
-          - true
-          - false
+          - yes
+          - no
+      required: true    
       version:
         description: 'New version number'
         required: false    
