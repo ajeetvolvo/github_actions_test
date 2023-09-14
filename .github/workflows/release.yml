@@ -1,20 +1,20 @@
-name: Manual Trigger Workflow
+name: create release
 
 on:
   workflow_dispatch:
     inputs:
       new_branch_name:
-        description: 'New branch name'
+        description: 'Specify the new branch name, e.g., 'feature/version_bump_X.Y.Z' or 'release/X.Y.Z''
         required: true
       bump_version:
         type: choice
-        description: 'Bump the version'
+        description: 'Choose 'True' to bump the version or 'False' to skip.'
         required: true
         options:
-          - true
-          - false
+          - True
+          - False
       version:
-        description: 'New version number'
+        description: 'Enter the new version (e.g., 5.31.1 or 5.32.0) or leave it blank to skip version bump.'
         required: false    
 
 jobs:
