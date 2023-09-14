@@ -11,8 +11,8 @@ on:
         description: 'Bump the version'
         required: true
         options:
-          - true
-          - false
+          - yes
+          - no
       version:
         description: 'New version number'
         required: false    
