@@ -82,7 +82,7 @@ android {
         buildConfigField("String", SERVER_BUILD_NUMBER, "\"\"")
         buildConfigField("String", APP_CENTER_SECRET, "\"\"")
         buildConfigField("String", GIT_BRANCH, "\"${gitBranch()}\"")
-        versionName = "5.31.0"
+        versionName = "8.1.0"
         versionCode = VersionCodeManager.currentVersionCode(project)
     }
 
