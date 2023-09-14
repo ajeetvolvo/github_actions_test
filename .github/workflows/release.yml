@@ -16,10 +16,13 @@ on:
         description: 'New version number'
         required: true
       update_file:
+        type: choice
         description: Make a choice
         options:
-        - yes
-        - no
+        - foo
+        - bar
+        - baz
+
      
 
 jobs:
