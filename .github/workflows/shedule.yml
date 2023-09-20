@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2 # Add this step to check out the code from the 'master' branch
         with:
-          ref: master
+          ref: master1
 
       - name: Print Hello World
         run: echo "Hello, world!"
