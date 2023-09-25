@@ -1,18 +1,17 @@
 name: Print Hello World
 
-on:
-  schedule:
-    - cron: "*/5 * * * *" # Runs every 5 minutes
+on: push
 
 jobs:
   hello_world:
     runs-on: ubuntu-latest
+    timeout-minutes: ${{ SHORT_TIMEOUT_MINUTES }}
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2 # Add this step to check out the code from the 'master' branch
+        uses: actions/checkout@v2
         with:
-          ref: master1
+          ref: master
 
       - name: Print Hello World
-        run: echo "Hello, world!"
+        run: sleep 100
