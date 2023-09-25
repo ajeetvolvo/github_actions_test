@@ -5,7 +5,7 @@ on: push
 jobs:
   hello_world:
     runs-on: ubuntu-latest
-    timeout-minutes: ${{ secrets.SHORT_TIMEOUT_MINUTES }}
+    timeout-minutes: ${{ fromJSON(vars.SHORT_TIMEOUT_MINUTES) }}
 
     steps:
       - name: Checkout Code
