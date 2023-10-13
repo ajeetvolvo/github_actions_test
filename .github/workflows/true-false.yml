@@ -13,17 +13,18 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Greet Sweden
-        run: echo "Hello Sweden 1"
+        run: echo "Hello Sweden"
 
   hello-india:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && env.RUN_CONDITIONAL_JOB = 'true' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       
       - name: Greet India or Ballia
         run: |
-          if [ "${ENABLE_INDIA_JOB}" == "true" ]; then
+          if [ "${RUN_CONDITIONAL_JOB}" = "true" ]; then
             echo "Hello India"
           else
             echo "Hello Ballia"
