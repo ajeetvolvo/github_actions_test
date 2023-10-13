@@ -1,0 +1,26 @@
+name: Greet Countries
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello-sweden:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Greet Sweden
+        run: echo "Hello Sweden"
+
+  hello-india:
+    if: ${{ github.event_name == 'push' && env.RUN_INDIA_JOB == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Greet India
+        run: echo "Hello India"
