@@ -17,12 +17,9 @@ jobs:
 
   hello-india:
     runs-on: ubuntu-latest
-    env:
-      RUN_INDIA_JOB: ${{ secrets.RUN_INDIA_JOB }}
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && env.RUN_INDIA_JOB == 'true' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       
       - name: Greet India
-        run: echo "Hello India"
+        run: echo $RUN_INDIA_JOB
