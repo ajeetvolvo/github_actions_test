@@ -17,11 +17,8 @@ jobs:
 
   hello-india:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && env.RUN_INDIA_JOB == 'true' }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && (env.RUN_INDIA_JOB == 'true') }}
     steps:
-      - name: Set RUN_INDIA_JOB variable
-        run: echo "RUN_INDIA_JOB=true" >> $GITHUB_ENV
-      
       - name: Checkout code
         uses: actions/checkout@v2
       
