@@ -18,8 +18,11 @@ jobs:
   hello-india:
     runs-on: ubuntu-latest
     steps:
+      - name: Show RUN_INDIA_JOB variable value
+        run: echo "RUN_INDIA_JOB is ${{ env.RUN_INDIA_JOB }}"
+
       - name: Checkout code
         uses: actions/checkout@v2
       
       - name: Greet India
-        run: echo $RUN_INDIA_JOB
+        run: echo "Hello India"
