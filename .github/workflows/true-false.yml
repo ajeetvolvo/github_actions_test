@@ -3,7 +3,7 @@ name: Greet Countries
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   hello-sweden:
@@ -16,8 +16,8 @@ jobs:
         run: echo "Hello Sweden"
 
   hello-india:
-    if: ${{ github.event_name == 'push' && env.RUN_INDIA_JOB == 'true' }}
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && env.RUN_INDIA_JOB == 'true' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
