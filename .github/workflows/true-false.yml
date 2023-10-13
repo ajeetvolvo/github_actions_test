@@ -23,7 +23,7 @@ jobs:
       
       - name: Greet India or Ballia
         run: |
-          if [ "${ENABLE_INDIA_JOBÄ_ö}" == "true" ]; then
+          if [ "${ENABLE_INDIA_JOB}" == "true" ]; then
             echo "Hello India"
           else
             echo "Hello Ballia"
