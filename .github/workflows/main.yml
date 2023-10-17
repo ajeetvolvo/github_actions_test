@@ -1,0 +1,20 @@
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-trigger-reusable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      # Add your build steps here
+
+      - name: Trigger Reusable Workflow
+        uses: actions/workflow-dispatch@v2
+        with:
+          workflow: "Reusable Workflow"
