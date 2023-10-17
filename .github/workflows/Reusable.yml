@@ -1,0 +1,16 @@
+name: Reusable Workflow
+
+on:
+  workflow_run:
+    workflows: ["Main Workflow"]
+    types:
+      - request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      # Add more steps as needed
