@@ -9,9 +9,14 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      - name: run hello
+      - name: Run hello
         run: echo hello world
-      
-        
 
-      # Add more steps as needed
+  build1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Run hello
+        run: echo hello world
+
