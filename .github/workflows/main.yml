@@ -6,15 +6,5 @@ on:
       - master
 
 jobs:
-  build-and-trigger-reusable:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      # Add your build steps here
-
-      - name: Trigger Reusable Workflow
-        uses: actions/workflow-dispatch@v2
-        with:
-          workflow: "Reusable Workflow"
+  call-workflow-passing-data:
+    uses: ajeetvolvo/github_actions_test/.github/workflows/Reusable.yml@master
