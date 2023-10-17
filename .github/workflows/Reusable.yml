@@ -9,5 +9,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+      - name: run hello
+        run: echo hello world
+      
+        
 
       # Add more steps as needed
