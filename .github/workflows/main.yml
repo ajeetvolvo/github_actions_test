@@ -8,3 +8,12 @@ on:
 jobs:
   call-workflow-passing-data:
     uses: ajeetvolvo/github_actions_test/.github/workflows/Reusable.yml@master
+
+  hello-india:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Say Hello to India
+        run: echo "Hello India!"
