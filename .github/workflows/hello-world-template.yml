@@ -2,8 +2,7 @@
 
 name: Hello, World Workflow
 
-on:
-  workflow_call:
+on: push
 
 
 jobs:
