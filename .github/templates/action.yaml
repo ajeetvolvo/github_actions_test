@@ -2,6 +2,8 @@ name: deploy
 
 
 runs:
+  using: "composite"
+  # Defining the action steps(Just one step to be simple)
   steps:
   - name: Hello Sweden
     run: echo Hello Sweden
