@@ -17,4 +17,4 @@ jobs:
         run: echo "Hello India!"
 
       - name: Deploy
-        run: ./.github/template/deploy/action.yml
+        run: "./.github/template/deploy/action.yml"
