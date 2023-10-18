@@ -18,3 +18,7 @@ jobs:
 
       - name: Say Hello to India
         run: echo "Hello India!"
+
+     - name: Deploy
+        uses: "./.github/template/deploy"
+
