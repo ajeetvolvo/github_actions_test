@@ -17,4 +17,4 @@ jobs:
         run: echo "Hello India!"
 
       - name: Deploy
-        uses: ajeetvolvo/github-actions-test/.github/templates/action.yml@master
+        uses: ajeetvolvo/github_actions_test/.github/templates/action.yml@master
