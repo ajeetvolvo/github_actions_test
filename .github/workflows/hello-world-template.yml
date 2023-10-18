@@ -1,15 +1,17 @@
 # set-env-vars.yml
 
-name: Set Environment Variables
+steps:
+  - name: Set GitHub Token
+    run: echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
 
-on: push
+  - name: Set Build Number
+    run: echo "BUILD_NUMBER=$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
 
-jobs:
-  set_env_variables:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-        
-      - name: Set env variables
-        run: echo hello
+  - name: Set Change Branch
+    run: |
+      echo "CHANGE_BRANCH=$(curl -s -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+      'https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}' | \
+      jq -r .head.ref)" >> $GITHUB_ENV
+
+  - name: Set Change ID
+    run: echo "CHANGE_ID=$(jq --raw-output .number "$GITHUB_EVENT_PATH")" >> $GITHUB_ENV
