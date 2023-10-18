@@ -1,18 +1,18 @@
-# .github/workflows/main.yml
+name: Main Workflow
 
-name: Custom Hello, World Workflow
-
-on: [push]
-
-extends: .github/workflows/hello-world-template.yml
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  hello_world:
+  build-app:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-node@v2
-      with:
-        node-version: 14
-    - name: Check out code
-      uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set Environment Variables
+        uses: ./.github/workflows/hello-world-template.yml
+        
 

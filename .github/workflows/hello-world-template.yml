@@ -1,16 +1,15 @@
-# hello-world-template.yml
+# set-env-vars.yml
 
-name: Hello, World Workflow
+name: Set Environment Variables
 
-on: push
-
+on: [push]
 
 jobs:
-  say_hello:
+  set_env_variables:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-    
-    - name: Say Hello
-      run: echo "Hello, World!"
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        
+      - name: Set env variables
+        run: echo hello
