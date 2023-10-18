@@ -1,0 +1,17 @@
+# hello-world-template.yml
+
+name: Hello, World Workflow
+
+on:
+  workflow_call:
+
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+    
+    - name: Say Hello
+      run: echo "Hello, World!"

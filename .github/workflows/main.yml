@@ -1,20 +1,19 @@
-name: Main Workflow
+# .github/workflows/main.yml
 
-on:
-  push:
-    branches:
-      - master
+name: Custom Hello, World Workflow
+
+on: [push]
 
 jobs:
-
-  hello-india:
+  hello_world:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Say Hello to India
-        run: echo "Hello India!"
-
-      - name: Deploy
-        uses: ajeetvolvo/github_actions_test/.github/templates/action.yml@master
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 14
+    - name: Check out code
+      uses: actions/checkout@v2
+    
+    # Include the reusable template here
+    - name: Run Hello, World Workflow
+      uses: ./.github/workflows/hello-world-template.yml

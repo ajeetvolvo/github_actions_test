@@ -1,7 +1,0 @@
-name: deploy
-
-
-runs:
-  steps:
-  - name: Hello Sweden
-    run: echo Hello Sweden
