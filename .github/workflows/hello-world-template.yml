@@ -2,7 +2,7 @@
 
 name: Set Environment Variables
 
-on: [push]
+on: push
 
 jobs:
   set_env_variables:
