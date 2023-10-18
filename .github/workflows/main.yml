@@ -6,12 +6,6 @@ on:
       - master
 
 jobs:
-  call-workflow-passing-data:
-    runs-on: ubuntu-latest
-    needs: hello-india
-    steps:
-      - name: Use Reusable Workflow
-        uses: ajeetvolvo/github_actions_test/.github/workflows/Reusable.yml@master
 
   hello-india:
     runs-on: ubuntu-latest
