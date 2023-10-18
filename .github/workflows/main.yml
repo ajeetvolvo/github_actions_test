@@ -14,6 +14,6 @@ jobs:
 
       - name: Set Environment Variables
         run: |
-          cat .github/workflows/set-env-vars.yml >> $GITHUB_ENV
+          cat .github/workflows/hello-world-template.yml >> $GITHUB_ENV
         
 
