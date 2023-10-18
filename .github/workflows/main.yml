@@ -5,4 +5,14 @@ name: Custom Hello, World Workflow
 on: [push]
 
 extends: .github/workflows/hello-world-template.yml
-  
+
+jobs:
+  hello_world:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 14
+    - name: Check out code
+      uses: actions/checkout@v2
+
