@@ -14,7 +14,7 @@ jobs:
 
       - name: Conditional Hello World
         run: |
-          if [ "${{ env.JOB_RUN }}" = "true" ]; then
+          if [ "${{ env.JOB_RUN }}" = "0" ]; then
             echo "Hello World"
           else
             echo "Skip this job"
