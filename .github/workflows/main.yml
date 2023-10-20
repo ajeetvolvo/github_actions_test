@@ -12,7 +12,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: hello world
-        run: echo $SHORT_TIMEOUT_MINUTES
-        
-
+      - name: Conditional Hello World
+        if: ${{ env.JOB_RUN == '0' }}
+        run: echo "Hello World"
