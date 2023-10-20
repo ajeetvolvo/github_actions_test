@@ -7,15 +7,11 @@ on:
 
 jobs:
   build-app:
+    if: ${{ vars.JOB_RUN != 'false' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
 
       - name: Conditional Hello World
-        run: |
-          if [ "${{ env.JOB_RUN }}" = "0" ]; then
-            echo "Hello World"
-          else
-            echo "Skip this job"
-          fi
+        run: echo "hello world"
