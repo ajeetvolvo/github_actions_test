@@ -7,11 +7,13 @@ on:
 
 jobs:
   build-app:
-    if: ${{ vars.JOB_RUN != 'false' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
 
       - name: Conditional Hello World
-        run: echo "hello world"
+        run: ecuho "hello world"
+      - name: Clean Workspace
+        run: rm -rf ./*
+        continue-on-error: true  
