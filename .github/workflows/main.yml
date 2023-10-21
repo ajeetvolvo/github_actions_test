@@ -9,6 +9,8 @@ jobs:
   build-app:
     runs-on: ubuntu-latest
     steps:
+      - name: Clean Workspace
+        run: rm -rf ./*
       - name: Checkout Code
         uses: actions/checkout@v2
 
@@ -16,4 +18,5 @@ jobs:
         run: ecuho "hello world"
       - name: Clean Workspace
         run: rm -rf ./*
-        continue-on-error: true  
+     
+        
