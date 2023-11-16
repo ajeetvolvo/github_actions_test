@@ -1,0 +1,25 @@
+name: Example Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  checkJobName:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set Job Name Variable
+      run: echo "JOB_NAME=$(echo ${{ github.job }})" >> $GITHUB_ENV
+
+    - name: Print Job Name
+      run: echo "Job Name is $JOB_NAME"
+
+  anotherJob:
+    needs: checkJobName
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Use Job Name Variable
+      run: echo "Using the job name from previous job: $JOB_NAME"
