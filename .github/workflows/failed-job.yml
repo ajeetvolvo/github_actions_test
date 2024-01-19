@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: This step always succeeds
-        run: echo "passed job name is job1"
+        run: exit 1
 
   job2:
     runs-on: ubuntu-latest
