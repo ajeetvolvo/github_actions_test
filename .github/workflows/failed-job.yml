@@ -27,5 +27,4 @@ jobs:
 
       - name: Extract snapshots on failure
         if: failure()
-        run: echo "failed job name is  echo ${{ matrix.job_name }}
-
+        run: echo "failed job name is ${{ matrix.job_name }}"
