@@ -1,4 +1,4 @@
-name: Your Workflow
+name: failed-job
 
 on:
   push:
@@ -23,6 +23,6 @@ jobs:
     needs: [job1, job2]
     steps:
       - name: Check for failed job
-        if: failure()
+        if: ${{ always() }}
         run: |
-          echo "The failed job name is ${{ job.status }}"
+          echo "The failed job name is ${{ needs.${{ failure() }}.name }}"
