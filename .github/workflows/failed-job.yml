@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: This step intentionally fails
-        run: echo one
+        run: exit 1
 
   job3:
     runs-on: ubuntu-latest
