@@ -13,7 +13,8 @@ jobs:
         job_name: ["job1"]
     steps:
       - name: This step always succeeds
-        run: echo "Hello, world!"
+        run: echo ${{ matrix.job_name }}
+        
 
   job2:
     runs-on: ubuntu-latest
@@ -24,28 +25,3 @@ jobs:
       - name: This step intentionally fails
         run: exit 1
 
-  job3:
-    needs: [job1, job2]
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        job_name: ["job1", "job2"]
-    steps:
-      - name: Check for failed job
-        if: matrix.job_name == needs.failed_job_name.outputs.failed_job_name
-        run: |
-          echo "The failed job name is ${{ matrix.job_name }}"
-    outputs:
-      failed_job_name: ${{ needs.failed_job_name.outputs.failed_job_name }}
-
-  failed_job_name:
-    needs: [job1, job2]
-    runs-on: ubuntu-latest
-    outputs:
-      failed_job_name: ${{ matrix.job_name }}
-    strategy:
-      matrix:
-        job_name: ["job1", "job2"]
-    steps:
-      - name: Set failed job name
-        run: echo "failed_job_name=${{ matrix.job_name }}" >> $GITHUB_ENV
