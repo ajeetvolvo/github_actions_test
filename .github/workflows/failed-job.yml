@@ -11,20 +11,17 @@ jobs:
     steps:
       - name: This step always succeeds
         run: echo "passed job name is job1"
-        
 
   job2:
     runs-on: ubuntu-latest
     steps:
       - name: This step intentionally fails
-        run: exit 1
+        run: echo one
 
   job3:
     runs-on: ubuntu-latest
-    needs: [job2]
+    needs: [job1, job2]
     if: failure()
-    env:
-      FAILED_JOB_NAME: ${{ needs.job2.outputs.job_name }}
     steps:
-      - name: Extract snapshots on failure
-        run: echo "failed job name is $FAILED_JOB_NAME"
+      - name: This step always succeeds
+        run: echo "passed job name is job1"
