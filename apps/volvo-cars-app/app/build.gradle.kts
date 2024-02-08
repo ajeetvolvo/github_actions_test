@@ -6,5 +6,5 @@ minSdk = (libs.versions.minSdk.get() as String).toInt()
         buildConfigField("String", SERVER_BUILD_NUMBER, "\"\"")
         buildConfigField("String", APP_CENTER_SECRET, "\"\"")
         buildConfigField("String", GIT_BRANCH, "\"${gitBranch()}\"")
-        versionName = "5.38.0"
+        versionName = "5.39.0"
         versionCode = VersionCodeManager.currentVersionCode(project)
