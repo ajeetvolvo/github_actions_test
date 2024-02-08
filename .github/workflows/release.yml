@@ -22,15 +22,13 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PARAM1: ${{ github.event.inputs.param1 }}
-      PARAM2: ${{ github.event.inputs.param2 }}
       NEW_BRANCH_NAME: ${{ github.event.inputs.new_branch_name }}
       NEW_VERSION_NAME: ${{ github.event.inputs.version }}
       BUMP_VERSION: ${{ github.event.inputs.bump_version }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.1.1
 
       - name: Create New Release Branch
         run: git checkout -b "$NEW_BRANCH_NAME"  # Create a new branch and switch to it
