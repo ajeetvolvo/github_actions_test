@@ -1,12 +1,10 @@
 name: Hello-World
 
-on:
-  schedule:
-    - cron: "*/1 * * * *"
+on: push
 
 jobs:
   greet:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
     steps:
       - name: Say Hello
