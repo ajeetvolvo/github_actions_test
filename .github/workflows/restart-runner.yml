@@ -11,18 +11,5 @@ jobs:
   restart_mac:
     runs-on: ${{ github.event.inputs.runs_on }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
       - name: Run restart-mac.sh script
-        run: sh /Users/ASINGH13/restart.sh && exit 0
-
-  check_runner_status:
-    needs: restart_mac
-    runs-on: ${{ github.event.inputs.runs_on }}
-    steps:
-      - name: Check Runner Status
-        run: |
-          # Add commands here to check the status of the runner
-          # For example, you can use a script or a command to verify if the runner is still connected
-          # If you cannot check the status programmatically, you can skip this step or add a dummy command
-          exit 0  # Assuming the runner status check passes, exit with success
+        run: sh /Users/ASINGH13/restart.sh 
