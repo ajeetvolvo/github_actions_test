@@ -6,10 +6,11 @@ on:
       runs_on:
         description: 'Value for runs-on'
         required: true
+      timeout-minutes: ${{ fromJSON(vars.SHORT_TIMEOUT_MINUTES) }}     
 
 jobs:
   restart_mac:
     runs-on: ${{ github.event.inputs.runs_on }}
     steps:
       - name: Run restart-mac.sh script
-        run: sh /Users/ASINGH13/restart.sh 
+        run: sleep 10
