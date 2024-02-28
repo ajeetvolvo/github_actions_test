@@ -1,0 +1,18 @@
+name: Restart Runners
+
+on:
+  workflow_dispatch:
+    inputs:
+      runs_on:
+        description: 'Value for runs-on'
+        required: true
+
+jobs:
+  restart_mac:
+    runs-on: ${{ github.event.inputs.runs_on }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Run restart-mac.sh script
+        run: echo "hello world"
