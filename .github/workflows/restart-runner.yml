@@ -11,6 +11,8 @@ jobs:
   restart_mac:
     runs-on: ${{ github.event.inputs.runs_on }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Run restart-mac.sh script
         run: sh /Users/ASINGH13/restart.sh
 
