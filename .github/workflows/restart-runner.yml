@@ -13,4 +13,4 @@ jobs:
     timeout-minutes: ${{ fromJSON(vars.SHORT_TIMEOUT_MINUTES) }}
     steps:
       - name: Run restart-mac.sh script
-        run: sleep 10
+        run: sleep 200
